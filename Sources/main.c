@@ -13,6 +13,9 @@
 #include "TIMERS.h"
 #include "random.h"
 
+#include "menu.h"
+#include "game.h"
+
 //variables globales
 int gameLosed, gameWon, levelPassed, level, score;
 
@@ -29,9 +32,36 @@ int main(void){
 	
 	while(1)
 	{		
+		//Affichage du menu
+		displayMenu(JOUER);
+		while(!refreshMenu());
+		
+		//Lancement de la partie
+		setRandom();
+		gameLosed = gameWon = false;
+		level = 1;
+		score = 0;
+		while(!gameLosed && !gameWon)			//Boucle de la partie
+		{
+			//Lancement du niveau
+			setupLevel();
+			startLevel();
+			while(!gameLosed && !levelPassed);		//Boucle du niveau
+			stopLevel();	
 			
+			//Niveau supérieur ?
+			if(levelPassed) level++;
+			
+			//Jeu terminé ?
+			if(level > 8) gameWon = true;
+		}
+		
+		//Partie Perdue
+		if(gameLosed) displayGameLosed();
+		
+		//Partie Gagnée
+		else if(gameWon) displayGameWon();
 	}
-	
 }
 
 

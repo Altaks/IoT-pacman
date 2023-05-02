@@ -10,7 +10,7 @@
       <TargetName>SPACE-DEFENDER</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
+      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -324,7 +324,6 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
-            <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>3</v6Lang>
             <v6LangP>3</v6LangP>
@@ -387,9 +386,24 @@
               <FilePath>.\Sources\main.c</FilePath>
             </File>
             <File>
+              <FileName>menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\GAME\menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>game.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\GAME\game.c</FilePath>
+            </File>
+            <File>
               <FileName>ImagesBMP.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Sources\GAME\ImagesBMP.c</FilePath>
+            </File>
+            <File>
+              <FileName>random.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\GAME\random.c</FilePath>
             </File>
             <File>
               <FileName>GPIO.c</FileName>
@@ -417,6 +431,16 @@
               <FilePath>.\Headers\GAME\ExtGlobales.h</FilePath>
             </File>
             <File>
+              <FileName>menu.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Headers\GAME\menu.h</FilePath>
+            </File>
+            <File>
+              <FileName>game.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Headers\GAME\game.h</FilePath>
+            </File>
+            <File>
               <FileName>ImagesBMP.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Headers\GAME\ImagesBMP.h</FilePath>
@@ -425,6 +449,11 @@
               <FileName>Registers.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Headers\HARD\Registers.h</FilePath>
+            </File>
+            <File>
+              <FileName>random.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Headers\GAME\random.h</FilePath>
             </File>
             <File>
               <FileName>GPIO.h</FileName>

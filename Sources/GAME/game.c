@@ -60,89 +60,12 @@ void displayScore()
 }
 void setupLevel()
 {
-	int i;
-	xSpaceShip = getRandom(0,GLCD_WIDTH-WIDTH_SPACE_SHIP);
-	rocketShooted = false;
-	levelPassed = false;
-	nbDeadEnnemis = 0;
-	
-	if(level <= 6)
-	{
-		nbEnnemis = 30;
-		switch(level)
-		{
-			case 1:
-			case 2:
-			case 3: setSpeedTimer8(NORMAL);break;
-			case 4: setSpeedTimer8(SPEED);break;
-			case 5: setSpeedTimer8(HARDCORE);break;
-			case 6: setSpeedTimer8(IMPOSSIBLE);break;
-		}
-		
-		for(i=0;i<nbEnnemis;i++)
-		{
-			ennemis[i].direction=1;
-			ennemis[i].dead=false;
-			ennemis[i].x=i%10*30+1;
-			if(i<10)
-				ennemis[i].y=30;
-			else if(i<20)
-				ennemis[i].y=80;
-			else
-				ennemis[i].y=130;
-			
-			switch(level)
-			{
-				case 1:ennemis[i].type=ENNEMI_1;break;
-				case 2:ennemis[i].type=ENNEMI_2;break;
-				case 3:ennemis[i].type=ENNEMI_3;break;
-				case 4:
-				case 5:
-				case 6:
-					if(i<10) ennemis[i].type=ENNEMI_1;
-					else if(i<20) ennemis[i].type=ENNEMI_2;
-					else ennemis[i].type=ENNEMI_3;
-					break;
-			}
-			//on initialise ces variables en fonction du type de l'ennemi
-			switch(ennemis[i].type)
-			{
-				case ENNEMI_1: ennemis[i].width=WIDTH_ENNEMI1;ennemis[i].height=HEIGHT_ENNEMI1;ennemis[i].nbLives=1;break;
-				case ENNEMI_2: ennemis[i].width=WIDTH_ENNEMI2;ennemis[i].height=HEIGHT_ENNEMI2;ennemis[i].nbLives=2;break;
-				case ENNEMI_3: ennemis[i].width=WIDTH_ENNEMI3;ennemis[i].height=HEIGHT_ENNEMI3;ennemis[i].nbLives=3;break;
-				default:break;
-			}
-		}
-	}
-	else //niveau boss
-	{
-		nbEnnemis = 1;
-		switch(level)
-		{
-			case 7: setSpeedTimer8(NORMAL); break;
-			case 8: setSpeedTimer8(IMPOSSIBLE); break;
-		}
 
-		ennemis[0].direction = 1;
-		ennemis[0].dead = 0;
-		ennemis[0].x = 1;
-		ennemis[0].y = 30;
-		ennemis[0].type = BOSS;
-		ennemis[0].nbLives = 20;
-		ennemis[0].height = HEIGHT_BOSS;
-		ennemis[0].width = WIDTH_BOSS;
-	}
 }
 
 void startLevel()
 {
-	clearScreenGLCD();
-	displayLevelName();
-	displayScore();
-	startTimer1();	//Affichage vaisseau
-	startTimer2(); //Affichage Missile
-	startTimer8(); //Affichage ennemis
-	startInterruptBP_USER(); //Lancement missile activé
+
 }
 
 void stopLevel()
@@ -155,19 +78,7 @@ void stopLevel()
 
 void updateSpaceShip()
 {	
-	if(joytickLeftPressed() && xSpaceShip > 0)
-	{
-		clearZone(xSpaceShip+WIDTH_SPACE_SHIP-1, GLCD_HEIGHT-HEIGHT_SPACE_SHIP, 1, HEIGHT_SPACE_SHIP);
-		xSpaceShip--;
-	}
 	
-	else if(joytickRightPressed() && xSpaceShip+WIDTH_SPACE_SHIP < GLCD_SIZE_Y)
-	{
-		clearZone(xSpaceShip, GLCD_HEIGHT-HEIGHT_SPACE_SHIP, 1, HEIGHT_SPACE_SHIP);
-		xSpaceShip++;
-	}	
-	/* Affichage vaisseau */
-	GLCD_DrawBitmap (xSpaceShip, GLCD_HEIGHT-HEIGHT_SPACE_SHIP,WIDTH_SPACE_SHIP , HEIGHT_SPACE_SHIP,(unsigned char *) bmpSpaceShip);
 }
 
 void updateRocket()
@@ -192,12 +103,7 @@ void updateRocket()
 
 void shoot()
 {
-	if(!rocketShooted) //on rentre que si il n'y a pas d?ja un missile
-	{
-		rocketShooted = true;
-		xRocket = xSpaceShip + WIDTH_SPACE_SHIP/2;
-		yRocket = 200;
-	}
+	
 }
 
 void updateEnnemis()
@@ -259,34 +165,9 @@ void updateEnnemis()
 			
 			
 			//affichage de l'ennemi
-			else if(ennemis[i].type==ENNEMI_1)
-			{
-				GLCD_DrawBitmap ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpEnnemi1);
-			}
-			else if(ennemis[i].type==ENNEMI_2)
-			{
-				if(ennemis[i].nbLives==2)
-					GLCD_DrawBitmap ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpEnnemi2White);
-				else if(ennemis[i].nbLives==1)
-					GLCD_DrawBitmap  ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpEnnemi2Red);
-			}
-			else if(ennemis[i].type==ENNEMI_3)
-			{
-				if(ennemis[i].nbLives==3)
-					GLCD_DrawBitmap ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpEnnemi3White);
-				else if(ennemis[i].nbLives==2)
-					GLCD_DrawBitmap ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpEnnemi3Green);
-				else if(ennemis[i].nbLives==1)
-					GLCD_DrawBitmap ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpEnnemi3Red);
-			}
-			else if(ennemis[i].type==BOSS)
-			{
-				GLCD_DrawBitmap ( ennemis[i].x,ennemis[i].y,ennemis[i].width , ennemis[i].height,(unsigned char *) bmpBoss);
-			}
+			
 			
 			/*Test pour savoir si l'ennemi est arriver a la height du vaisseau*/
-			if(ennemis[i].y+ennemis[i].height >= GLCD_HEIGHT-HEIGHT_SPACE_SHIP)
-				gameLosed=true;
 			
 			//Test pour savoir si le niveau est terminé
 			if(nbDeadEnnemis == nbEnnemis)

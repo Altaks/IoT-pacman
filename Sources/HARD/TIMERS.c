@@ -7,13 +7,13 @@
   * @modification	
   * @brief   configuration des timers
   ******************************************************************************************************************/
-
-#include "stm32f10x.h"                  /* STM32F10x.h definitions            */
-#include "Registers.h"
-#include "TIMERS.h"
-
-#include "game.h"
-
+	
+	#include "stm32f10x.h"                  /* STM32F10x.h definitions            */
+	#include "Registers.h"
+	#include "TIMERS.h"
+	
+	#include "game.h"
+	
 
 void initTIMERS()
 {

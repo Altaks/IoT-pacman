@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\SPACE-DEFENDER.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\SPACE-DEFENDER.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue May 02 16:24:45 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue May 02 17:58:11 2023
 <BR><P>
 <H3>Maximum Stack Usage =        136 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -108,7 +108,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_xl.o(.text)
 </UL>
-<P><STRONG><a name="[90]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[88]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[4b]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -118,15 +118,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[91]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[89]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[92]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[8a]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[93]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[8b]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[94]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[8c]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[95]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[8d]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[4a]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_xl.o(.text))
 
@@ -365,15 +365,13 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_xl.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_xl.o(RESET)
 </UL>
-<P><STRONG><a name="[78]"></a>rand</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rand.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRandom
+<P><STRONG><a name="[8e]"></a>rand</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rand.o(.text), UNUSED)
+
+<P><STRONG><a name="[85]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRandom
 </UL>
 
-<P><STRONG><a name="[87]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRandom
-</UL>
-
-<P><STRONG><a name="[96]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[8f]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[62]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
@@ -385,7 +383,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[97]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[90]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[21]"></a>EXTI9_5_IRQHandler</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, gpio.o(i.EXTI9_5_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EXTI9_5_IRQHandler
@@ -422,9 +420,7 @@ Global Symbols
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_cmd
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSpaceShip
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateEnnemis
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLogo
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLogo
 </UL>
 
 <P><STRONG><a name="[55]"></a>GLCD_DrawChar</STRONG> (Thumb, 194 bytes, Stack size 32 bytes, glcd_mcbstm32e.o(i.GLCD_DrawChar))
@@ -458,7 +454,7 @@ Global Symbols
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rd_dat
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
 </UL>
 
 <P><STRONG><a name="[64]"></a>GLCD_SetBackgroundColor</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, glcd_mcbstm32e.o(i.GLCD_SetBackgroundColor))
@@ -472,6 +468,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayScore
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLevelName
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLogo
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 </UL>
 
 <P><STRONG><a name="[66]"></a>GLCD_SetForegroundColor</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, glcd_mcbstm32e.o(i.GLCD_SetForegroundColor))
@@ -493,7 +490,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_xl.o(.text)
 </UL>
 <P><STRONG><a name="[23]"></a>TIM1_UP_TIM10_IRQHandler</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, timers.o(i.TIM1_UP_TIM10_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = TIM1_UP_TIM10_IRQHandler &rArr; updateSpaceShip &rArr; clearZone &rArr; GLCD_DrawBargraph &rArr; GLCD_SetWindow &rArr; wr_reg
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM1_UP_TIM10_IRQHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSpaceShip
 </UL>
@@ -518,7 +515,7 @@ Global Symbols
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[98]"></a>__1sprintf$1</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1), UNUSED)
+<P><STRONG><a name="[91]"></a>__1sprintf$1</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1), UNUSED)
 
 <P><STRONG><a name="[70]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
@@ -528,11 +525,11 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
 </UL>
 
-<P><STRONG><a name="[99]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[92]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[9a]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[93]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[9b]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[94]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[63]"></a>clearScreenGLCD</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, glcd.o(i.clearScreenGLCD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = clearScreenGLCD &rArr; GLCD_ClearScreen &rArr; GLCD_SetWindow &rArr; wr_reg
@@ -540,9 +537,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_ClearScreen
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetBackgroundColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
+<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
 </UL>
 
@@ -552,8 +547,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawBargraph
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetForegroundColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSpaceShip
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRocket
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRocket
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateEnnemis
 </UL>
 
@@ -562,7 +556,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
 </UL>
 
 <P><STRONG><a name="[69]"></a>configTimer2</STRONG> (Thumb, 50 bytes, Stack size 4 bytes, timers.o(i.configTimer2))
@@ -570,16 +564,16 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
 </UL>
 
 <P><STRONG><a name="[6b]"></a>configTimer8</STRONG> (Thumb, 66 bytes, Stack size 4 bytes, timers.o(i.configTimer8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = configTimer8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer8
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setSpeedTimer8
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setSpeedTimer8
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
 </UL>
 
 <P><STRONG><a name="[6e]"></a>displayGameLosed</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, menu.o(i.displayGameLosed))
@@ -616,10 +610,9 @@ Global Symbols
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRocket
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
 </UL>
 
-<P><STRONG><a name="[6f]"></a>displayLogo</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, menu.o(i.displayLogo))
+<P><STRONG><a name="[6f]"></a>displayLogo</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, menu.o(i.displayLogo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = displayLogo &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetForegroundColor
@@ -633,15 +626,15 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
 </UL>
 
-<P><STRONG><a name="[75]"></a>displayMenu</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, menu.o(i.displayMenu))
+<P><STRONG><a name="[75]"></a>displayMenu</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, menu.o(i.displayMenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = displayMenu &rArr; displayLogo &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearScreenGLCD
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetForegroundColor
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetForegroundColor
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetFont
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawString
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLogo
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -656,22 +649,13 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateRocket
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateEnnemis
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
 </UL>
 
-<P><STRONG><a name="[77]"></a>getRandom</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, random.o(i.getRandom))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = getRandom
-</UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
-</UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupLevel
+<P><STRONG><a name="[84]"></a>getTimer3Value</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timers.o(i.getTimer3Value))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRandom
 </UL>
 
-<P><STRONG><a name="[86]"></a>getTimer3Value</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, timers.o(i.getTimer3Value))
-<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRandom
-</UL>
-
-<P><STRONG><a name="[79]"></a>initGLCD</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, glcd.o(i.initGLCD))
+<P><STRONG><a name="[77]"></a>initGLCD</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, glcd.o(i.initGLCD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = initGLCD &rArr; clearScreenGLCD &rArr; GLCD_ClearScreen &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_Initialize
@@ -680,19 +664,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7d]"></a>initGPIO</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, gpio.o(i.initGPIO))
+<P><STRONG><a name="[7b]"></a>initGPIO</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, gpio.o(i.initGPIO))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7a]"></a>initRandom</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, random.o(i.initRandom))
+<P><STRONG><a name="[78]"></a>initRandom</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, random.o(i.initRandom))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = initRandom
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer3
+<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer3
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>initTIMERS</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, timers.o(i.initTIMERS))
+<P><STRONG><a name="[7a]"></a>initTIMERS</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, timers.o(i.initTIMERS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = initTIMERS &rArr; configTimer8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configTimer8
@@ -702,152 +686,111 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7b]"></a>initTimer3</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, timers.o(i.initTimer3))
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRandom
+<P><STRONG><a name="[79]"></a>initTimer3</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, timers.o(i.initTimer3))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRandom
 </UL>
 
-<P><STRONG><a name="[84]"></a>joytickDownPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickDownPressed))
-<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
+<P><STRONG><a name="[82]"></a>joytickDownPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickDownPressed))
+<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
 </UL>
 
-<P><STRONG><a name="[8d]"></a>joytickLeftPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickLeftPressed))
-<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSpaceShip
+<P><STRONG><a name="[83]"></a>joytickSelectPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickSelectPressed))
+<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
 </UL>
 
-<P><STRONG><a name="[8e]"></a>joytickRightPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickRightPressed))
-<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateSpaceShip
-</UL>
-
-<P><STRONG><a name="[85]"></a>joytickSelectPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickSelectPressed))
-<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
-</UL>
-
-<P><STRONG><a name="[83]"></a>joytickUpPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickUpPressed))
-<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
+<P><STRONG><a name="[81]"></a>joytickUpPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.joytickUpPressed))
+<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
 </UL>
 
 <P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 158 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = main &rArr; startLevel &rArr; displayLevelName &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = main &rArr; displayGameLosed &rArr; displayLogo &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupLevel
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRandom
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRandom
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGPIO
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupLevel
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRandom
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refreshMenu
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRandom
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGPIO
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[7e]"></a>refreshMenu</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, menu.o(i.refreshMenu))
+<P><STRONG><a name="[7c]"></a>refreshMenu</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, menu.o(i.refreshMenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = refreshMenu &rArr; displayMenu &rArr; displayLogo &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickUpPressed
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickSelectPressed
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickDownPressed
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickUpPressed
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickSelectPressed
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickDownPressed
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7f]"></a>setRandom</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, random.o(i.setRandom))
+<P><STRONG><a name="[7d]"></a>setRandom</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, random.o(i.setRandom))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = setRandom
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTimer3Value
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;srand
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTimer3Value
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;srand
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[6c]"></a>setSpeedTimer8</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, timers.o(i.setSpeedTimer8))
 <BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configTimer8
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupLevel
 </UL>
 
-<P><STRONG><a name="[80]"></a>setupLevel</STRONG> (Thumb, 510 bytes, Stack size 8 bytes, game.o(i.setupLevel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = setupLevel &rArr; getRandom
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setSpeedTimer8
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRandom
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[7e]"></a>setupLevel</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, game.o(i.setupLevel))
+<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4e]"></a>shoot</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, game.o(i.shoot))
+<P><STRONG><a name="[4e]"></a>shoot</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, game.o(i.shoot))
 <BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI9_5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8b]"></a>startInterruptBP_USER</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, gpio.o(i.startInterruptBP_USER))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
+<P><STRONG><a name="[7f]"></a>startLevel</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, game.o(i.startLevel))
+<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[81]"></a>startLevel</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, game.o(i.startLevel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = startLevel &rArr; displayLevelName &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer8
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer2
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startTimer1
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startInterruptBP_USER
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayScore
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLevelName
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearScreenGLCD
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[86]"></a>stopInterruptBP_USER</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.stopInterruptBP_USER))
+<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
 </UL>
 
-<P><STRONG><a name="[88]"></a>startTimer1</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timers.o(i.startTimer1))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
-</UL>
-
-<P><STRONG><a name="[89]"></a>startTimer2</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, timers.o(i.startTimer2))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
-</UL>
-
-<P><STRONG><a name="[8a]"></a>startTimer8</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timers.o(i.startTimer8))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startLevel
-</UL>
-
-<P><STRONG><a name="[8c]"></a>stopInterruptBP_USER</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio.o(i.stopInterruptBP_USER))
-<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
-</UL>
-
-<P><STRONG><a name="[82]"></a>stopLevel</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, game.o(i.stopLevel))
+<P><STRONG><a name="[80]"></a>stopLevel</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, game.o(i.stopLevel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = stopLevel
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer8
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer2
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopTimer1
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopInterruptBP_USER
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopInterruptBP_USER
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[68]"></a>stopTimer1</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timers.o(i.stopTimer1))
 <BR><BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configTimer1
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
 </UL>
 
 <P><STRONG><a name="[6a]"></a>stopTimer2</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, timers.o(i.stopTimer2))
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configTimer2
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
 </UL>
 
 <P><STRONG><a name="[6d]"></a>stopTimer8</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timers.o(i.stopTimer8))
 <BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configTimer8
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stopLevel
 </UL>
 
-<P><STRONG><a name="[5f]"></a>updateEnnemis</STRONG> (Thumb, 1076 bytes, Stack size 16 bytes, game.o(i.updateEnnemis))
+<P><STRONG><a name="[5f]"></a>updateEnnemis</STRONG> (Thumb, 582 bytes, Stack size 16 bytes, game.o(i.updateEnnemis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = updateEnnemis &rArr; displayScore &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearZone
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayScore
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawBitmap
 </UL>
 <BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM8_UP_TIM13_IRQHandler
 </UL>
@@ -864,15 +807,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[5d]"></a>updateSpaceShip</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, game.o(i.updateSpaceShip))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = updateSpaceShip &rArr; clearZone &rArr; GLCD_DrawBargraph &rArr; GLCD_SetWindow &rArr; wr_reg
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickRightPressed
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joytickLeftPressed
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearZone
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawBitmap
-</UL>
-<BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_UP_TIM10_IRQHandler
+<P><STRONG><a name="[5d]"></a>updateSpaceShip</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, game.o(i.updateSpaceShip))
+<BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_UP_TIM10_IRQHandler
 </UL>
 
 <P><STRONG><a name="[71]"></a>userButtonPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.userButtonPressed))
@@ -911,7 +847,7 @@ Local Symbols
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_DrawBitmap
 </UL>
 
-<P><STRONG><a name="[8f]"></a>wr_dat</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, glcd_mcbstm32e.o(i.wr_dat))
+<P><STRONG><a name="[87]"></a>wr_dat</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, glcd_mcbstm32e.o(i.wr_dat))
 <BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_reg
 </UL>
 
@@ -925,7 +861,7 @@ Local Symbols
 <P><STRONG><a name="[5a]"></a>wr_reg</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, glcd_mcbstm32e.o(i.wr_reg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = wr_reg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat
+<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_dat
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wr_cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_SetWindow
