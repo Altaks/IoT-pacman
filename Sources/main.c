@@ -48,12 +48,6 @@ int main(void){
 			startLevel();
 			while(!gameLosed && !levelPassed);		//Boucle du niveau
 			stopLevel();	
-			
-			//Niveau supérieur ?
-			if(levelPassed) level++;
-			
-			//Jeu terminé ?
-			if(level > 8) gameWon = true;
 		}
 		
 		//Partie Perdue

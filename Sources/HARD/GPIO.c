@@ -103,7 +103,6 @@ void EXTI9_5_IRQHandler(void)
 {
 	if(EXTI->PR & (1<<8)) //on rentre que si il n'y a pas d?ja un missile
 	{
-		shoot();
 		EXTI->PR |= (1<<8); //on remet ? z?ro pour la prochaine interruption
 	}	
 }

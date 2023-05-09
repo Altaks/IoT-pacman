@@ -15,3 +15,4 @@
 .\objects\timers.o: .\Headers\HARD\TIMERS.h
 .\objects\timers.o: .\Headers\GAME\game.h
 .\objects\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\timers.o: .\Headers\HARD\GPIO.h

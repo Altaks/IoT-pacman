@@ -13,6 +13,7 @@
 	#include "TIMERS.h"
 	
 	#include "game.h"
+	#include "GPIO.h"
 	
 
 void initTIMERS()
@@ -47,7 +48,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
 {
 	if(TIM1->SR & UIF)
 	{
-		updateSpaceShip();
+		updateMangeurPosition();
 		TIM1->SR &= ~UIF;	
 	}
 }
@@ -78,7 +79,6 @@ void stopTimer2()
 void TIM2_IRQHandler (void){
     if ( TIM2->SR & UIF )
 		{ 
-			updateRocket();
       TIM2->SR  &= ~UIF; // abaissement drapeau			
     }
 }
@@ -119,7 +119,6 @@ void TIM8_UP_TIM13_IRQHandler(void)
 {	
 	if(TIM8->SR & UIF)
 	{
-		updateEnnemis();
 				
 		TIM8->SR &= ~UIF;//on remet le bit SR ? 0 pour la prochaine interruption
 	}

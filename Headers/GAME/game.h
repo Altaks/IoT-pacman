@@ -35,13 +35,8 @@
 	void setupLevel(void);
 	void startLevel(void);
 	void stopLevel(void);
-
-	void updateSpaceShip(void);
-	void updateRocket(void);
-
-	void shoot(void);
-
-	void updateEnnemis(void);
+	
+	void updateMangeurPosition(void);
 	
 	
 
