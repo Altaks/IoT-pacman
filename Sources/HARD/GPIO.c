@@ -16,7 +16,7 @@
 
 void initGPIO(void)
 {
-	//variable servant � gagner du temps lors de l'attribution des masques aux registres
+	//variable servant à gagner du temps lors de l'attribution des masques aux registres
 	unsigned long temp;
 	
 	//Init Joystick Gauche
@@ -90,12 +90,38 @@ void startInterruptBP_USER()
 	temp = AFIO_EXTICR3 & 0xFFF0;
 	AFIO_EXTICR3 = temp | 0x0006;
 	EXTI->IMR |= (1<<8);
+	
 	EXTI->RTSR |= (1<<8); //on d?clenche lors de l'appui sur le bouton (donc front montant)
+}
+
+void startInterruptJoystick(){
+	unsigned long temp;
+	
+	// configuration joystick haut gauche droite
+	SETENA1 |= (1 << 8); // activer les lignes d'interruptions externes 10 à 15 pour les inputs du joystick 40e bit donc 32+8
+	temp = AFIO_EXTICR4 & 0x000F;
+	AFIO_EXTICR4 = temp | 0x6660;
+	
+	EXTI->IMR |= 0xE000; // on configure le masque sur les interruptions 15 14 13
+	EXTI->RTSR |= (1 << 15) + (1 << 14) + (1 << 13); // on les configure en front montant
+	
+	// config joystick bas
+	SETENA0 |= (1 << 9);
+	temp = AFIO_EXTICR1 & 0x0FFF;
+	AFIO_EXTICR1 = temp | 0x3000;
+	
+	EXTI->IMR |= (1 << 3);
+	EXTI->RTSR |= (1 << 3);
 }
 
 void stopInterruptBP_USER()
 {
 	EXTI->IMR &= ~(1<<8);
+}
+
+void stopInterruptJoystick(){
+	EXTI->IMR &= ~(0xE000);
+	EXTI->IMR &= ~(1 << 3);
 }
 
 //routine d'interruption du bouton BP_USER

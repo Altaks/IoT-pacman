@@ -5,7 +5,7 @@
   * @version v1.0
   * @date    2023
   * @modification	
-  * @brief   définition des registres utilisés
+  * @brief   dÃ©finition des registres utilisÃ©s
   ******************************************************************************************************************/
 
 #ifndef __REGISTRES_H
@@ -14,8 +14,10 @@
 #define SETENA0 			(*(volatile unsigned long *)0xE000E100)
 #define SETENA1 			(*(volatile unsigned long *)0xE000E104)
 	
+#define AFIO_EXTICR1  (*(volatile unsigned long *)0x40010008)
 #define AFIO_EXTICR3  (*(volatile unsigned long *)0x40010010)
-	
+#define AFIO_EXTICR4  (*(volatile unsigned long *)0x40010014)
+
 #define APPUYE 0 //define qui permet d'avoir un code plus clair
 
 #define UIE (1<<0)
