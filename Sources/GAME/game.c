@@ -22,8 +22,8 @@
 #include "stdio.h"
 
 static int xPlayer = GLCD_WIDTH / 2, yPlayer = GLCD_HEIGHT / 2;
-static int playerScore = 2;
-static int ennemiesScore = 3;
+static int playerScore = 3;
+static int ennemiesScore = 1;
 int playerMovement[2] = {0, 0};
 
 void displayScore()
@@ -43,6 +43,7 @@ void displayScore()
 		GLCD_DrawBitmap(defaultX, defaultY+1, 4, 4, (const unsigned char*)bmpFood);
 		defaultX -= 6;
 	};
+	for(i = 0; i < 3-playerScore; i++) defaultX -= 6;
 	defaultX -= 6;
 	GLCD_DrawString(defaultX, defaultY, "[");
 	
@@ -58,6 +59,7 @@ void displayScore()
 		GLCD_DrawBitmap(defaultX, defaultY+1, 4, 4, (const unsigned char*)bmpFood);
 		defaultX -= 6;
 	};
+	for(i = 0; i < 3-ennemiesScore; i++) defaultX -= 6;
 	defaultX -= 6;
 	GLCD_DrawString(defaultX, defaultY, "[");
 	
@@ -110,14 +112,14 @@ void updateMangeurPosition(){
 	if(xPlayer >= GLCD_WIDTH - WIDTH_PACMAN) xPlayer = GLCD_WIDTH - WIDTH_PACMAN - 1;
 	
 	if(yPlayer <= HEIGHT_PACMAN) yPlayer = HEIGHT_PACMAN + 1;
-	if(yPlayer >= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD) yPlayer = GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD - 1;
+	if(yPlayer >= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD -6) yPlayer = GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD - 7;
 	
 	if(sameDirection(playerMovement, GO_UP) && yPlayer >= HEIGHT_PACMAN){
 		
 		GLCD_DrawRectangle(xPlayer, yPlayer + HEIGHT_PACMAN, WIDTH_PACMAN, 1 );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenUp);
 		
-	}else if(sameDirection(playerMovement, GO_DOWN) && yPlayer <= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD){
+	}else if(sameDirection(playerMovement, GO_DOWN) && yPlayer <= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD -6){
 		
 		GLCD_DrawRectangle(xPlayer, yPlayer - 1, WIDTH_PACMAN, 1 );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenDown);
