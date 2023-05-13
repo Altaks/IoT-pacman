@@ -47,8 +47,8 @@ void initGPIO(void)
 	GPIOG->CRH = temp | 0x40000000;
 	
 	//Init Joystick Bas
-	temp = GPIOD->CRL & ~ 0xF000;
-	GPIOD->CRL = temp | 0x4000;
+	temp = GPIOD->CRL & 0xFFFF0FFF;
+	GPIOD->CRL = temp | 0x00004000;
 	
 	//Init BP_User
 	temp = GPIOG->CRH & 0xFFFFFFF0;
@@ -111,8 +111,8 @@ void startInterruptJoystick(){
 	temp = AFIO_EXTICR4 & 0x000F;
 	AFIO_EXTICR4 = temp | 0x6660; // PG15 sur EXTI15, PG14 sur EXTI14, PG13 sur EXTI13
 	
-	temp = AFIO_EXTICR3 & 0x0FFF;
-	AFIO_EXTICR3 = temp | 0x6000; // PD3 sur EXTI3
+	temp = AFIO_EXTICR1 & 0x0FFF;
+	AFIO_EXTICR1 = temp | 0x3000; // PD3 sur EXTI3
 
 	NVIC_EnableIRQ(EXTI15_10_IRQn);
 	NVIC_EnableIRQ(EXTI3_IRQn);
@@ -137,9 +137,6 @@ void EXTI9_5_IRQHandler(void)
 	}	
 }
 
-// droite 13
-// gauche 14
-// haut 15
 void EXTI15_10_IRQHandler(void){ // routine d'interruption joystick haut gauche droite
 	if(joytickUpPressed()){
 		
@@ -160,7 +157,7 @@ void EXTI15_10_IRQHandler(void){ // routine d'interruption joystick haut gauche 
 
 void EXTI3_IRQHandler(void) { // routine d'interruption joystick bas
 	if(joytickDownPressed()){
-    EXTI->PR |= (1<<3);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
+    EXTI->PR |= (1 << 3);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
 		changeDirection(GO_DOWN);
 	}
 }

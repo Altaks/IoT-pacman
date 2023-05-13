@@ -65,7 +65,7 @@ void changeDirection(const int direction[2]){
 	playerMovement[1] = direction[1]; 
 }
 
-int samePosition(int a[2], const int b[2]){
+int sameDirection(int a[2], const int b[2]){
 	return a[0] == b[0] && a[1] == b[1];
 }
 
@@ -75,26 +75,27 @@ void updateMangeurPosition(){
 	yPlayer += playerMovement[1];
 	
 	if(xPlayer <= WIDTH_PACMAN) xPlayer = WIDTH_PACMAN + 1;
-	if(yPlayer <= HEIGHT_PACMAN) yPlayer = HEIGHT_PACMAN + 1;
 	if(xPlayer >= GLCD_WIDTH - WIDTH_PACMAN) xPlayer = GLCD_WIDTH - WIDTH_PACMAN - 1;
+	
+	if(yPlayer <= HEIGHT_PACMAN) yPlayer = HEIGHT_PACMAN + 1;
 	if(yPlayer >= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD) yPlayer = GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD - 1;
 	
-	if(samePosition(playerMovement, GO_UP) && yPlayer >= HEIGHT_PACMAN){
+	if(sameDirection(playerMovement, GO_UP) && yPlayer >= HEIGHT_PACMAN){
 		
 		GLCD_DrawRectangle(xPlayer, yPlayer + HEIGHT_PACMAN, WIDTH_PACMAN, 1 );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenUp);
 		
-	}else if(samePosition(playerMovement, GO_DOWN) && yPlayer <= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD){
+	}else if(sameDirection(playerMovement, GO_DOWN) && yPlayer <= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD){
 		
 		GLCD_DrawRectangle(xPlayer, yPlayer - 1, WIDTH_PACMAN, 1 );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenDown);
 		
-	} else if(samePosition(playerMovement, GO_LEFT) && xPlayer >= WIDTH_PACMAN){
+	} else if(sameDirection(playerMovement, GO_LEFT) && xPlayer >= WIDTH_PACMAN){
 		
 		GLCD_DrawRectangle(xPlayer + WIDTH_PACMAN, yPlayer, 1, HEIGHT_PACMAN );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenLeft);
 		
-	} else if(samePosition(playerMovement, GO_RIGHT) && xPlayer <= GLCD_WIDTH - WIDTH_PACMAN){
+	} else if(sameDirection(playerMovement, GO_RIGHT) && xPlayer <= GLCD_WIDTH - WIDTH_PACMAN){
 		
 		GLCD_DrawRectangle(xPlayer -1, yPlayer, 1, HEIGHT_PACMAN );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenRight);

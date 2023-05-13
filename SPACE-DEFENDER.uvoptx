@@ -152,9 +152,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>162</LineNumber>
+          <LineNumber>159</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218348</Address>
+          <Address>134218302</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -163,23 +163,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\Sources\HARD\GPIO.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SPACE_DEFENDER\Sources/HARD/GPIO.c\162</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>141</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218204</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\Sources\HARD\GPIO.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SPACE_DEFENDER\Sources/HARD/GPIO.c\141</Expression>
+          <Expression>\\SPACE_DEFENDER\Sources/HARD/GPIO.c\159</Expression>
         </Bp>
       </Breakpoint>
       <Tracepoint>
