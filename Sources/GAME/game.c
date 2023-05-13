@@ -105,7 +105,7 @@ void placeFoodAtRandom(){
 	// remove the lastest ball
 	GLCD_SetForegroundColor(GLCD_COLOR_BLACK);
 	GLCD_SetBackgroundColor(GLCD_COLOR_BLACK);
-	GLCD_DrawRectangle(xFood, yFood, WIDTH_FOOD, HEIGHT_FOOD);
+	GLCD_DrawRectangle(xFood-1, yFood-1, WIDTH_FOOD+1, HEIGHT_FOOD+1);
 	
 	// randomize the position of the new food
 	xFood = getRandom(0, GLCD_WIDTH - WIDTH_PACMAN);
@@ -117,28 +117,6 @@ void placeFoodAtRandom(){
 	// reset painter colors
 	GLCD_SetForegroundColor(GLCD_COLOR_WHITE);
 	GLCD_SetBackgroundColor(GLCD_COLOR_BLACK);
-}
-
-bool checkCollision(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2) {
-    // Calcul des coordonnées des bords des rectangles
-    int left1 = x1;
-    int right1 = x1 + width1;
-    int top1 = y1;
-    int bottom1 = y1 + height1;
-
-    int left2 = x2;
-    int right2 = x2 + width2;
-    int top2 = y2;
-    int bottom2 = y2 + height2;
-
-    // Vérification de la collision
-    if (left1 < right2 && right1 > left2 && top1 < bottom2 && bottom1 > top2) {
-        // Il y a collision entre les rectangles
-        return true;
-    } else {
-        // Pas de collision entre les rectangles
-        return false;
-    }
 }
 
 void changeDirection(const int direction[2]){
@@ -166,7 +144,7 @@ void updateMangeurPosition(){
 		GLCD_DrawRectangle(xPlayer, yPlayer + HEIGHT_PACMAN, WIDTH_PACMAN, 1 );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenUp);
 		
-	}else if(sameDirection(playerMovement, GO_DOWN)){
+	} else if(sameDirection(playerMovement, GO_DOWN)){
 		
 		GLCD_DrawRectangle(xPlayer, yPlayer - 1, WIDTH_PACMAN, 1 );
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenDown);
@@ -182,10 +160,34 @@ void updateMangeurPosition(){
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenRight);
 		
 	} else return;
-	
+}
+
+bool checkCollision(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2) {
+    // Calcul des coordonnées des bords des rectangles
+    int left1 = x1;
+    int right1 = x1 + width1;
+    int top1 = y1;
+    int bottom1 = y1 + height1;
+
+    int left2 = x2;
+    int right2 = x2 + width2;
+    int top2 = y2;
+    int bottom2 = y2 + height2;
+
+    // Vérification de la collision
+    return (left1 < right2 && right1 > left2 && top1 < bottom2 && bottom1 > top2);
+}
+
+void checkMangeurCollisionWithFood(){
 	if(checkCollision(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, xFood, yFood, WIDTH_FOOD, HEIGHT_FOOD)){
 		placeFoodAtRandom();
 		playerScore++;
 		displayScore();
 	}
 }
+
+void gameLoop(){
+	updateMangeurPosition();
+	checkMangeurCollisionWithFood();
+}
+

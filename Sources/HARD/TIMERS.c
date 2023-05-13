@@ -48,7 +48,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
 {
 	if(TIM1->SR & UIF)
 	{
-		updateMangeurPosition();
+		gameLoop();
 		TIM1->SR &= ~UIF;	
 	}
 }

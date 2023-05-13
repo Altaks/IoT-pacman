@@ -17,20 +17,13 @@
 	extern int playerMovement[2];
 	extern int xFood, yFood;
 	
-	typedef enum {ENNEMI_1, ENNEMI_2, ENNEMI_3, BOSS} Type;
-	
 	//Structure d'un ennemi
 	typedef struct Ennemi Ennemi;
 	struct Ennemi
 	{
-			int direction; //indique le direction de l'ennemi (+1 pour droite ou -1 pour gauche)
-			bool dead; //indique si l'ennemi est dead 
-			int x; //donne la position en x de l'ennemi
-			int y; //donne la position en y de l'ennemi
-			int width; //donne la width de l'ennemi
-			int height; //donne la height de l'ennemi
-			Type type; //indique de quel type est l'ennemi
-			int nbLives; //donne le nombre de nbLives de l'ennemi
+		int xPos;
+		int yPos;
+		bool alignXFirst;
 	};
 	
 	void displayLevelName(void);
@@ -45,7 +38,7 @@
 
 	bool sameDirection(int a[2], const int b[2]);
   void changeDirection(const int array[2]);
-	void updateMangeurPosition(void);
+	void gameLoop(void);
 	
 	
 
