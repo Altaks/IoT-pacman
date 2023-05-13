@@ -23,17 +23,37 @@
 
 static int xPlayer = GLCD_WIDTH / 2, yPlayer = GLCD_HEIGHT / 2;
 static int playerScore = 3;
+static int ennemiesScore = 3;
 int playerMovement[2] = {0, 0};
 
 void displayScore()
 {
 	int defaultX = GLCD_WIDTH - 6;
-	int defaultY = GLCD_HEIGHT - 6;
+	int defaultY = GLCD_HEIGHT - HEIGHT_PACMAN - 6;
 	int i;
+	
+	GLCD_SetForegroundColor(GLCD_COLOR_WHITE);
+	GLCD_SetBackgroundColor(GLCD_COLOR_BLACK);
+	GLCD_SetFont(&GLCD_Font_6x8);
+	
+	// draw player score count
+	GLCD_DrawString(defaultX, defaultY, "]");
+	defaultX -= 10;
 	for(i = 0; i < playerScore; i++){
-		GLCD_DrawBitmap(defaultX, defaultY, 4, 4, (const unsigned char*)bmpFood);
+		GLCD_DrawBitmap(defaultX, defaultY+1, 4, 4, (const unsigned char*)bmpFood);
 		defaultX -= 6;
 	};
+	defaultX -= 6;
+	GLCD_DrawString(defaultX, defaultY, "[");
+	
+	defaultX -= (6 + WIDTH_PACMAN);
+	GLCD_DrawBitmap(defaultX, defaultY, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenRight);
+	
+	// draw ennemies score count
+	
+	
+	GLCD_SetForegroundColor(GLCD_COLOR_BLACK);
+	GLCD_SetBackgroundColor(GLCD_COLOR_BLACK);
 }
 void setupLevel()
 {
