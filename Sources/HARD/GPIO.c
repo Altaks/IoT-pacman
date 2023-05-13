@@ -11,13 +11,28 @@
 	#include "stm32f10x.h"                  /* STM32F10x.h definitions            */
 	#include "Registers.h"
 	#include "GPIO.h"
-	
 	#include "game.h"
+
+
+const int GO_UP[2] = {0, -1};
+const int GO_DOWN[2] = {0, 1};
+const int GO_LEFT[2] = {-1, 0};
+const int GO_RIGHT[2] = {1, 0};
+const int IDLE[2] = {0, 0};
+
 
 void initGPIO(void)
 {
 	//variable servant à gagner du temps lors de l'attribution des masques aux registres
 	unsigned long temp;
+		
+	/*---- Mise en service des registres AFIO pour la configuration d'interruptions externes ----*/
+  RCC->APB2ENR |= (1 << 0); // Enable AFIO clock
+	RCC->APB2ENR |= (1<<1); // AFIOEN  pour l'utilisation en EXTI des GPIO		
+	
+	//Enable GPIO
+	RCC->APB2ENR |= (1<<5); // GPIODEN
+	RCC->APB2ENR |= (1<<8); // GPIOGEN	
 	
 	//Init Joystick Gauche
 	temp = GPIOG->CRH & ~ 0xF000000;
@@ -42,14 +57,6 @@ void initGPIO(void)
 	//Init Joystick Select
 	temp = GPIOG->CRL & ~ 0xF0000000;
 	GPIOG->CRL = temp | 0x40000000;
-		
-	//Enable GPIO
-	RCC->APB2ENR |= (1<<5); // GPIODEN
-	RCC->APB2ENR |= (1<<8); // GPIOGEN	
-		
-	/*---- Mise en service des registres AFIO pour la configuration d'interruptions externes ----*/
-  RCC->APB2ENR |= (1 << 0); // Enable AFIO clock
-	RCC->APB2ENR |= (1<<1); // AFIOEN  pour l'utilisation en EXTI des GPIO		
 }
 
 int joytickUpPressed(void)
@@ -97,21 +104,18 @@ void startInterruptBP_USER()
 void startInterruptJoystick(){
 	unsigned long temp;
 	
-	// configuration joystick haut gauche droite
-	SETENA1 |= (1 << 8); // activer les lignes d'interruptions externes 10 à 15 pour les inputs du joystick 40e bit donc 32+8
+	// configuration des interruptions
+	EXTI->FTSR |= (1<<15)|(1<<14)|(1<<13)|(1<<3); // detections sur fronts descendants
+	EXTI->IMR  |= (1<<15)|(1<<14)|(1<<13)|(1<<3); // demasquage
+	
 	temp = AFIO_EXTICR4 & 0x000F;
-	AFIO_EXTICR4 = temp | 0x6660;
+	AFIO_EXTICR4 = temp | 0x6660; // PG15 sur EXTI15, PG14 sur EXTI14, PG13 sur EXTI13
 	
-	EXTI->IMR |= 0xE000; // on configure le masque sur les interruptions 15 14 13
-	EXTI->RTSR |= (1 << 15) + (1 << 14) + (1 << 13); // on les configure en front montant
-	
-	// config joystick bas
-	SETENA0 |= (1 << 9);
-	temp = AFIO_EXTICR1 & 0x0FFF;
-	AFIO_EXTICR1 = temp | 0x3000;
-	
-	EXTI->IMR |= (1 << 3);
-	EXTI->RTSR |= (1 << 3);
+	temp = AFIO_EXTICR3 & 0x0FFF;
+	AFIO_EXTICR3 = temp | 0x6000; // PD3 sur EXTI3
+
+	NVIC_EnableIRQ(EXTI15_10_IRQn);
+	NVIC_EnableIRQ(EXTI3_IRQn);
 }
 
 void stopInterruptBP_USER()
@@ -132,3 +136,32 @@ void EXTI9_5_IRQHandler(void)
 		EXTI->PR |= (1<<8); //on remet ? z?ro pour la prochaine interruption
 	}	
 }
+
+// droite 13
+// gauche 14
+// haut 15
+void EXTI15_10_IRQHandler(void){ // routine d'interruption joystick haut gauche droite
+	if(joytickUpPressed()){
+		
+    EXTI->PR |= (1<<15);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
+		changeDirection(GO_UP);
+	
+	} else if(joytickLeftPressed()){
+		
+    EXTI->PR |= (1<<14);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
+		changeDirection(GO_LEFT);
+		
+	} else if(joytickRightPressed()){
+	
+    EXTI->PR |= (1<<13);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
+		changeDirection(GO_RIGHT);
+	}
+}
+
+void EXTI3_IRQHandler(void) { // routine d'interruption joystick bas
+	if(joytickDownPressed()){
+    EXTI->PR |= (1<<3);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
+		changeDirection(GO_DOWN);
+	}
+}
+

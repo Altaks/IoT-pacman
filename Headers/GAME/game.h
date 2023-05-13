@@ -35,7 +35,9 @@
 	void setupLevel(void);
 	void startLevel(void);
 	void stopLevel(void);
-	
+
+
+  void changeDirection(const int array[2]);
 	void updateMangeurPosition(void);
 	
 	

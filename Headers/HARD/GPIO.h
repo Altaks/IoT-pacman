@@ -11,6 +11,12 @@
 #ifndef __GPIO_H
 #define __GPIO_H
 
+extern const int GO_UP[2];
+extern const int GO_DOWN[2];
+extern const int GO_LEFT[2];
+extern const int GO_RIGHT[2];
+extern const int IDLE[2];
+
 void initGPIO(void);//Initialisation des ports
 
 int joytickUpPressed(void);
@@ -21,8 +27,10 @@ int joytickRightPressed(void);
 int userButtonPressed(void);
 
 void startInterruptBP_USER(void);
-void stopInterruptBP_USER(void);
+void startInterruptJoystick(void);
 
+void stopInterruptBP_USER(void);
+void stopInterruptJoystick(void);
 
 
 #endif
