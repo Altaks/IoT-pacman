@@ -20,7 +20,6 @@ const int GO_LEFT[2] = {-1, 0};
 const int GO_RIGHT[2] = {1, 0};
 const int IDLE[2] = {0, 0};
 
-
 void initGPIO(void)
 {
 	//variable servant à gagner du temps lors de l'attribution des masques aux registres
@@ -141,24 +140,32 @@ void EXTI15_10_IRQHandler(void){ // routine d'interruption joystick haut gauche 
 	if(joytickUpPressed()){
 		
     EXTI->PR |= (1<<15);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
-		changeDirection(GO_UP);
+		if(sameDirection(playerMovement, GO_DOWN)){
+			changeDirection(IDLE);
+		} else changeDirection(GO_UP);
 	
 	} else if(joytickLeftPressed()){
 		
     EXTI->PR |= (1<<14);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
-		changeDirection(GO_LEFT);
+		if(sameDirection(playerMovement, GO_RIGHT)){
+			changeDirection(IDLE);
+		} else changeDirection(GO_LEFT);
 		
 	} else if(joytickRightPressed()){
 	
     EXTI->PR |= (1<<13);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
-		changeDirection(GO_RIGHT);
+		if(sameDirection(playerMovement, GO_LEFT)){
+			changeDirection(IDLE);
+		} else changeDirection(GO_RIGHT);
 	}
 }
 
 void EXTI3_IRQHandler(void) { // routine d'interruption joystick bas
 	if(joytickDownPressed()){
     EXTI->PR |= (1 << 3);   //Attention ! Il faut mettre un 1 pour "baisser" le drapeau !
-		changeDirection(GO_DOWN);
+		if(sameDirection(playerMovement, GO_UP)){
+			changeDirection(IDLE);
+		} else changeDirection(GO_DOWN);
 	}
 }
 

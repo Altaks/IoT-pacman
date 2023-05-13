@@ -22,8 +22,8 @@
 #include "stdio.h"
 
 static int xPlayer = GLCD_WIDTH / 2, yPlayer = GLCD_HEIGHT / 2;
-static int playerMovement[2] = {1, 0};
 static int playerScore = 3;
+int playerMovement[2] = {0, 0};
 
 void displayScore()
 {
@@ -65,7 +65,7 @@ void changeDirection(const int direction[2]){
 	playerMovement[1] = direction[1]; 
 }
 
-int sameDirection(int a[2], const int b[2]){
+bool sameDirection(int a[2], const int b[2]){
 	return a[0] == b[0] && a[1] == b[1];
 }
 

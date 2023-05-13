@@ -13,6 +13,7 @@
 
 	#include "stdbool.h"
 	
+	extern int playerMovement[2];
 	typedef enum {ENNEMI_1, ENNEMI_2, ENNEMI_3, BOSS} Type;
 	
 	//Structure d'un ennemi
@@ -37,6 +38,7 @@
 	void stopLevel(void);
 
 
+	bool sameDirection(int a[2], const int b[2]);
   void changeDirection(const int array[2]);
 	void updateMangeurPosition(void);
 	
