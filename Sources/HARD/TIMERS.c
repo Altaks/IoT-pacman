@@ -83,7 +83,7 @@ void TIM2_IRQHandler (void){
 }
 
 
-//Controle la vitesse de d?placement des ennemis
+//Controle la vitesse de deplacement des ennemis
 void configTimer8()
 {
 	RCC->APB2ENR |= (1<<13);

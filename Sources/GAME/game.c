@@ -28,6 +28,8 @@ int playerMovement[2] = {0, 0};
 
 static int xFood = 0, yFood = 0;
 
+static Ennemi ennemi;
+
 void displayScore()
 {
 	int defaultX = GLCD_WIDTH - 6;
@@ -86,6 +88,11 @@ void setupLevel()
 	
 	// placing the food at a random position and display it
 	placeFoodAtRandom();
+	
+	// place the first ennemi
+	ennemi.xPos = getRandom(0, GLCD_WIDTH - WIDTH_PACMAN);
+	ennemi.yPos = getRandom(0, GLCD_HEIGHT - HEIGHT_PACMAN);
+	ennemi.alignXFirst = getRandom(0, 1); // true or false
 }
 
 void startLevel()
@@ -160,6 +167,33 @@ void updateMangeurPosition(){
 		GLCD_DrawBitmap(xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN, (const unsigned char*)bmpPacManOpenRight);
 		
 	} else return;
+}
+
+void updateEnnemiPosition(Ennemi * ennemi){
+	if(ennemi->alignXFirst){
+		if(ennemi->xPos != xFood){
+			// si le x est pas bon, ajuster le x
+			if(ennemi->xPos > xFood) ennemi->xPos--; else ennemi->xPos++;
+		} else {
+			// sinon ajuster le y
+			if(ennemi->yPos > yFood) ennemi->yPos--; else ennemi->yPos++;
+		}
+	} else {
+		// faire l'inverse
+		if(ennemi->yPos != yFood){
+			// si le y est pas bon, ajuster le y
+			if(ennemi->yPos > xFood) ennemi->yPos--; else ennemi->yPos++;
+		} else {
+			// sinon ajuster le y
+			if(ennemi->xPos > xFood) ennemi->xPos--; else ennemi->xPos++;
+		}
+	}
+	
+	if(ennemi->xPos <= 0) ennemi->xPos = 0;
+	if(ennemi->xPos >= GLCD_WIDTH - WIDTH_PACMAN) ennemi->xPos = GLCD_WIDTH - WIDTH_PACMAN - 1;
+	
+	if(ennemi->yPos <= 0) ennemi->yPos = 0;
+	if(ennemi->yPos >= GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD -6) ennemi->yPos = GLCD_HEIGHT - HEIGHT_PACMAN - 2*HEIGHT_FOOD - 7;
 }
 
 bool checkCollision(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2) {
