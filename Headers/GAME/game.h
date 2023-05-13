@@ -13,7 +13,10 @@
 
 	#include "stdbool.h"
 	
+	extern int xPlayer, yPlayer;
 	extern int playerMovement[2];
+	extern int xFood, yFood;
+	
 	typedef enum {ENNEMI_1, ENNEMI_2, ENNEMI_3, BOSS} Type;
 	
 	//Structure d'un ennemi
@@ -37,6 +40,8 @@
 	void startLevel(void);
 	void stopLevel(void);
 
+	bool checkCollision(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2);
+	void placeFoodAtRandom(void);
 
 	bool sameDirection(int a[2], const int b[2]);
   void changeDirection(const int array[2]);

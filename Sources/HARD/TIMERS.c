@@ -23,13 +23,13 @@ void initTIMERS()
 	configTimer8();
 }
 
-//Controle la vitesse de d?placement du vaisseau
+//Controle la vitesse de déplacement du pacman
 void configTimer1()
 {
 	RCC->APB2ENR |= (1<<11);
 	TIM1->PSC = 3;					 //Pour une dur?e de 3,6ms
 	TIM1->ARR = 64800;
-	TIM1->DIER |= (1<<0);		//Permet de dire que l'on vas utiliser une routine d'interruption
+	TIM1->DIER |= (1<<0);		// Permet de dire que l'on va utiliser une routine d'interruption
 	stopTimer1();
 	SETENA0 |= (1<<25);
 }
@@ -62,7 +62,6 @@ void configTimer2()
   TIM2->ARR = 32400; 
 	
   TIM2->DIER |= UIE; // autorisation des interruptions sur Timer2
-	stopTimer2();
  	SETENA0 = (1<<28); // bit 28 pour activation IRQ Timer2
 }
 
