@@ -27,7 +27,7 @@ void initTIMERS()
 void configTimer1()
 {
 	RCC->APB2ENR |= (1<<11);
-	TIM1->PSC = 3;					 //Pour une duree de 3,6ms
+	TIM1->PSC = 6;					 //Pour une duree de 5.4ms
 	TIM1->ARR = 64800;
 	TIM1->DIER |= (1<<0);		// Permet de dire que l'on va utiliser une routine d'interruption
 	stopTimer1();
@@ -53,11 +53,11 @@ void TIM1_UP_TIM10_IRQHandler(void)
 	}
 }
 
-//Controle la vitesse de d?placement du missile
+//Controle la vitesse de déplacement des ennemis de mangeur
 void configTimer2()
 {
 	RCC->APB1ENR |= (1<<0);
-	TIM2->PSC = 3; //Pour une dur?e de 1.8ms
+	TIM2->PSC = 6; //Pour une durée de 2.25ms
   TIM2->ARR = 32400; 
 	
   TIM2->DIER |= UIE; // autorisation des interruptions sur Timer2
