@@ -46,7 +46,7 @@ int main(void){
 			//Lancement du niveau
 			setupLevel();
 			startLevel();
-			while(!gameLosed && !levelPassed);		//Boucle du niveau
+			while(!gameLosed && !gameWon);		//Boucle du niveau
 			stopLevel();	
 		}
 		

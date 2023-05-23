@@ -76,9 +76,10 @@ void displayGameLosed()
 
 void displayGameWon()
 {
+	clearScreenGLCD();
 	displayLogo();
 	
-	GLCD_SetForegroundColor(GLCD_COLOR_RED);
+	GLCD_SetForegroundColor(GLCD_COLOR_GREEN);
 	GLCD_DrawString  (100, 100,"GAGNE !!!");
 	
 	while(!userButtonPressed());

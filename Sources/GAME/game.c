@@ -262,7 +262,6 @@ void updateEnnemiesPositionAndRedraw(){
 			ennemiesScore++;
 			if(ennemiesScore == 3) {
 				gameLosed = true;
-				stopLevel();
 				return;
 			}
 			if(ennemiesScore == 2) setSpeedTimer8(SPEED);
@@ -294,7 +293,6 @@ void checkMangeurCollisionWithFood(){
 		playerScore++;
 		displayScore();
 		if(playerScore == 3) {
-			stopLevel();
 			gameWon = true;
 		}
 	}
@@ -305,7 +303,6 @@ void checkMangeurCollisionWithEnnemies(){
 	for(; i < 3; i++) {
 		Ennemi * ennemi = &ennemies[i];
 		if(checkCollision(ennemi->xPos, ennemi->yPos, WIDTH_ENNEMI, HEIGHT_ENNEMI, xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN)){
-			stopLevel();
 			gameLosed = true;
 		}
 	}
