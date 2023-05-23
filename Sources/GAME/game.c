@@ -115,9 +115,7 @@ void stopLevel()
 
 void placeFoodAtRandom(){
 	// remove the lastest ball
-	GLCD_SetForegroundColor(GLCD_COLOR_BLACK);
-	GLCD_SetBackgroundColor(GLCD_COLOR_BLACK);
-	GLCD_DrawRectangle(xFood-2, yFood-2, WIDTH_FOOD+4, HEIGHT_FOOD+4);
+	clearZone(xFood, yFood, WIDTH_FOOD, HEIGHT_FOOD); 
 	
 	// randomize the position of the new food
 	xFood = getRandom(WIDTH_PACMAN*2, GLCD_WIDTH - (WIDTH_PACMAN*2));
