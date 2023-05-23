@@ -14,6 +14,7 @@
 #include "GLCD.h"
 
 #include "menu.h"
+#include "game.h"
 #include "ImagesBMP.h"
 #include "ExtGlobales.h"
 
@@ -68,7 +69,7 @@ void displayGameLosed()
 	GLCD_SetForegroundColor(GLCD_COLOR_RED);
 	GLCD_DrawString  (100, 100,"Perdu !!!");
 	GLCD_SetForegroundColor(GLCD_COLOR_WHITE);
-	sprintf(chaine,"Votre score : %d",score);
+	sprintf(chaine,"Votre score : %d",playerScore);
 	GLCD_DrawString (20, 140, chaine);
 	
 	while(!userButtonPressed());

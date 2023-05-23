@@ -17,6 +17,7 @@
 .\objects\menu.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
 .\objects\menu.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\menu.o: .\Headers\GAME\menu.h
+.\objects\menu.o: .\Headers\GAME\game.h
 .\objects\menu.o: .\Headers\GAME\ImagesBMP.h
 .\objects\menu.o: .\Headers\GAME\ExtGlobales.h
 .\objects\menu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -16,6 +16,7 @@
 extern int xPlayer, yPlayer;
 extern int playerMovement[2];
 extern int xFood, yFood;
+extern int playerScore;
 
 //Structure d'un ennemi
 typedef struct Ennemi Ennemi;

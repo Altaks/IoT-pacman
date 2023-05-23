@@ -23,7 +23,7 @@
 #include "math.h" 
 
 static int xPlayer = GLCD_WIDTH / 2, yPlayer = GLCD_HEIGHT / 2;
-static int playerScore = 0;
+int playerScore = 0;
 static int ennemiesScore = 0;
 int playerMovement[2] = {0, 0};
 
