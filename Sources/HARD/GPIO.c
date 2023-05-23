@@ -1,17 +1,17 @@
 /**
-  ******************************************************************************************************************
-  * @file    GPIO.c 
-  * @author  IUT Informatique La Rochelle
-  * @version v1.0
-  * @date    2023
-  * @modification	
-  * @brief   configuration des ports GPIO
-  ******************************************************************************************************************/
+******************************************************************************************************************
+* @file    GPIO.c 
+* @author  IUT Informatique La Rochelle
+* @version v1.0
+* @date    2023
+* @modification	
+* @brief   configuration des ports GPIO
+******************************************************************************************************************/
 	
-	#include "stm32f10x.h"                  /* STM32F10x.h definitions            */
-	#include "Registers.h"
-	#include "GPIO.h"
-	#include "game.h"
+#include "stm32f10x.h"                  /* STM32F10x.h definitions */
+#include "Registers.h"
+#include "GPIO.h"
+#include "game.h"
 
 
 const int GO_UP[2] = {0, -1};

@@ -23,11 +23,11 @@ void initTIMERS()
 	configTimer8();
 }
 
-//Controle la vitesse de déplacement du pacman
+/* ------------------------------ Controle FPS & Deplacements mangeur ------------------------------*/
 void configTimer1()
 {
 	RCC->APB2ENR |= (1<<11);
-	TIM1->PSC = 3;					 //Pour une dur?e de 3,6ms
+	TIM1->PSC = 3;					 //Pour une duree de 3,6ms
 	TIM1->ARR = 64800;
 	TIM1->DIER |= (1<<0);		// Permet de dire que l'on va utiliser une routine d'interruption
 	stopTimer1();
@@ -52,7 +52,6 @@ void TIM1_UP_TIM10_IRQHandler(void)
 		TIM1->SR &= ~UIF;	
 	}
 }
-
 
 //Controle la vitesse de d?placement du missile
 void configTimer2()
@@ -83,7 +82,8 @@ void TIM2_IRQHandler (void){
 }
 
 
-//Controle la vitesse de deplacement des ennemis
+
+/* ------------------------------ Refresh deplacements ennemis ------------------------------*/
 void configTimer8()
 {
 	RCC->APB2ENR |= (1<<13);
@@ -118,7 +118,8 @@ void TIM8_UP_TIM13_IRQHandler(void)
 {	
 	if(TIM8->SR & UIF)
 	{
-				
+		// update la position des ennemis 
+		updateEnnemiesPositionAndRedraw();
 		TIM8->SR &= ~UIF;//on remet le bit SR ? 0 pour la prochaine interruption
 	}
 }
