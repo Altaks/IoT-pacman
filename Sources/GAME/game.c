@@ -261,7 +261,7 @@ void updateEnnemiesPositionAndRedraw(){
 			placeFoodAtRandom();
 			ennemiesScore++;
 			if(ennemiesScore == 3) {
-				gameLosed = true;
+				gameLost = true;
 				return;
 			}
 			if(ennemiesScore == 2) setSpeedTimer8(SPEED);
@@ -303,7 +303,7 @@ void checkMangeurCollisionWithEnnemies(){
 	for(; i < 3; i++) {
 		Ennemi * ennemi = &ennemies[i];
 		if(checkCollision(ennemi->xPos, ennemi->yPos, WIDTH_ENNEMI, HEIGHT_ENNEMI, xPlayer, yPlayer, WIDTH_PACMAN, HEIGHT_PACMAN)){
-			gameLosed = true;
+			gameLost = true;
 		}
 	}
 }

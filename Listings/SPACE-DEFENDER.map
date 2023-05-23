@@ -14,16 +14,16 @@ Section Cross References
     main.o(i.main) refers to game.o(i.setupLevel) for setupLevel
     main.o(i.main) refers to game.o(i.startLevel) for startLevel
     main.o(i.main) refers to game.o(i.stopLevel) for stopLevel
-    main.o(i.main) refers to menu.o(i.displayGameLosed) for displayGameLosed
+    main.o(i.main) refers to menu.o(i.displayGameLost) for displayGameLost
     main.o(i.main) refers to menu.o(i.displayGameWon) for displayGameWon
     main.o(i.main) refers to main.o(.data) for gameWon
-    menu.o(i.displayGameLosed) refers to glcd.o(i.clearScreenGLCD) for clearScreenGLCD
-    menu.o(i.displayGameLosed) refers to menu.o(i.displayLogo) for displayLogo
-    menu.o(i.displayGameLosed) refers to glcd_mcbstm32e.o(i.GLCD_SetForegroundColor) for GLCD_SetForegroundColor
-    menu.o(i.displayGameLosed) refers to glcd_mcbstm32e.o(i.GLCD_DrawString) for GLCD_DrawString
-    menu.o(i.displayGameLosed) refers to printf1.o(i.__0sprintf$1) for __2sprintf
-    menu.o(i.displayGameLosed) refers to gpio.o(i.userButtonPressed) for userButtonPressed
-    menu.o(i.displayGameLosed) refers to game.o(.data) for playerScore
+    menu.o(i.displayGameLost) refers to glcd.o(i.clearScreenGLCD) for clearScreenGLCD
+    menu.o(i.displayGameLost) refers to menu.o(i.displayLogo) for displayLogo
+    menu.o(i.displayGameLost) refers to glcd_mcbstm32e.o(i.GLCD_SetForegroundColor) for GLCD_SetForegroundColor
+    menu.o(i.displayGameLost) refers to glcd_mcbstm32e.o(i.GLCD_DrawString) for GLCD_DrawString
+    menu.o(i.displayGameLost) refers to printf1.o(i.__0sprintf$1) for __2sprintf
+    menu.o(i.displayGameLost) refers to gpio.o(i.userButtonPressed) for userButtonPressed
+    menu.o(i.displayGameLost) refers to game.o(.data) for playerScore
     menu.o(i.displayGameWon) refers to glcd.o(i.clearScreenGLCD) for clearScreenGLCD
     menu.o(i.displayGameWon) refers to menu.o(i.displayLogo) for displayLogo
     menu.o(i.displayGameWon) refers to glcd_mcbstm32e.o(i.GLCD_SetForegroundColor) for GLCD_SetForegroundColor
@@ -50,7 +50,7 @@ Section Cross References
     game.o(i.checkMangeurCollisionWithEnnemies) refers to game.o(i.checkCollision) for checkCollision
     game.o(i.checkMangeurCollisionWithEnnemies) refers to game.o(.bss) for ennemies
     game.o(i.checkMangeurCollisionWithEnnemies) refers to game.o(.data) for yPlayer
-    game.o(i.checkMangeurCollisionWithEnnemies) refers to main.o(.data) for gameLosed
+    game.o(i.checkMangeurCollisionWithEnnemies) refers to main.o(.data) for gameLost
     game.o(i.checkMangeurCollisionWithFood) refers to game.o(i.checkCollision) for checkCollision
     game.o(i.checkMangeurCollisionWithFood) refers to game.o(i.placeFoodAtRandom) for placeFoodAtRandom
     game.o(i.checkMangeurCollisionWithFood) refers to game.o(i.displayScore) for displayScore
@@ -114,7 +114,7 @@ Section Cross References
     game.o(i.updateEnnemiesPositionAndRedraw) refers to game.o(i.redrawEnnemies) for redrawEnnemies
     game.o(i.updateEnnemiesPositionAndRedraw) refers to game.o(.bss) for ennemies
     game.o(i.updateEnnemiesPositionAndRedraw) refers to game.o(.data) for xFood
-    game.o(i.updateEnnemiesPositionAndRedraw) refers to main.o(.data) for gameLosed
+    game.o(i.updateEnnemiesPositionAndRedraw) refers to main.o(.data) for gameLost
     game.o(i.updateMangeurPosition) refers to game.o(i.sameDirection) for sameDirection
     game.o(i.updateMangeurPosition) refers to glcd_mcbstm32e.o(i.GLCD_DrawRectangle) for GLCD_DrawRectangle
     game.o(i.updateMangeurPosition) refers to glcd_mcbstm32e.o(i.GLCD_DrawBitmap) for GLCD_DrawBitmap
@@ -840,7 +840,7 @@ Image Symbol Table
     i.configTimer8                           0x08001878   Section        0  timers.o(i.configTimer8)
     i.delay_ms                               0x080018c8   Section        0  glcd_mcbstm32e.o(i.delay_ms)
     delay_ms                                 0x080018c9   Thumb Code    38  glcd_mcbstm32e.o(i.delay_ms)
-    i.displayGameLosed                       0x080018f4   Section        0  menu.o(i.displayGameLosed)
+    i.displayGameLost                        0x080018f4   Section        0  menu.o(i.displayGameLost)
     i.displayGameWon                         0x08001964   Section        0  menu.o(i.displayGameWon)
     i.displayLogo                            0x08001998   Section        0  menu.o(i.displayLogo)
     i.displayMenu                            0x08001a58   Section        0  menu.o(i.displayMenu)
@@ -1124,7 +1124,7 @@ Image Symbol Table
     configTimer1                             0x080017f5   Thumb Code    66  timers.o(i.configTimer1)
     configTimer2                             0x08001845   Thumb Code    42  timers.o(i.configTimer2)
     configTimer8                             0x08001879   Thumb Code    66  timers.o(i.configTimer8)
-    displayGameLosed                         0x080018f5   Thumb Code    74  menu.o(i.displayGameLosed)
+    displayGameLost                          0x080018f5   Thumb Code    74  menu.o(i.displayGameLost)
     displayGameWon                           0x08001965   Thumb Code    40  menu.o(i.displayGameWon)
     displayLogo                              0x08001999   Thumb Code    98  menu.o(i.displayLogo)
     displayMenu                              0x08001a59   Thumb Code    96  menu.o(i.displayMenu)
@@ -1187,7 +1187,7 @@ Image Symbol Table
     __mathlib_zero                           0x08004e28   Data           8  qnan.o(.constdata)
     Region$$Table$$Base                      0x08004e30   Number         0  anon$$obj.o(Region$$Table)
     Region$$Table$$Limit                     0x08004e50   Number         0  anon$$obj.o(Region$$Table)
-    gameLosed                                0x20000000   Data           4  main.o(.data)
+    gameLost                                 0x20000000   Data           4  main.o(.data)
     gameWon                                  0x20000004   Data           4  main.o(.data)
     levelPassed                              0x20000008   Data           4  main.o(.data)
     level                                    0x2000000c   Data           4  main.o(.data)
@@ -1293,7 +1293,7 @@ Memory Map of the image
     0x08001844   0x08001844   0x00000034   Code   RO          441    i.configTimer2      timers.o
     0x08001878   0x08001878   0x00000050   Code   RO          442    i.configTimer8      timers.o
     0x080018c8   0x080018c8   0x0000002c   Code   RO          618    i.delay_ms          glcd_mcbstm32e.o
-    0x080018f4   0x080018f4   0x00000070   Code   RO           92    i.displayGameLosed  menu.o
+    0x080018f4   0x080018f4   0x00000070   Code   RO           92    i.displayGameLost   menu.o
     0x08001964   0x08001964   0x00000034   Code   RO           93    i.displayGameWon    menu.o
     0x08001998   0x08001998   0x000000c0   Code   RO           94    i.displayLogo       menu.o
     0x08001a58   0x08001a58   0x00000084   Code   RO           95    i.displayMenu       menu.o
@@ -1386,15 +1386,15 @@ Image component sizes
       2590        126          0          9          0      12715   glcd_mcbstm32e.o
        666        112         40          0          0      33653   gpio.o
          0          0       1312          0          0       1246   imagesbmp.o
-       144         16          0         20          0     210251   main.o
-       568        184          0          1          0       2514   menu.o
+       144         16          0         20          0     210246   main.o
+       568        184          0          1          0       2513   menu.o
         46          0          0          0          0       1389   random.o
         36          8        304          0       1024        808   startup_stm32f10x_xl.o
        328         28          0         20          0       2253   system_stm32f10x.o
        544         94          0          0          0       6448   timers.o
 
     ----------------------------------------------------------------------
-      7062        806       7992         88       1088     283899   Object Totals
+      7062        806       7992         88       1088     283893   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          8          0          0          6          4          0   (incl. Padding)
 
@@ -1458,8 +1458,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11912       1048       8136         96       1088     281483   Grand Totals
-     11912       1048       8136         96       1088     281483   ELF Image Totals
+     11912       1048       8136         96       1088     281477   Grand Totals
+     11912       1048       8136         96       1088     281477   ELF Image Totals
      11912       1048       8136         96          0          0   ROM Totals
 
 ==============================================================================

@@ -13,7 +13,7 @@
 
 #include "Board_GLCD.h"
 
-extern int gameLosed;
+extern int gameLost;
 extern int gameWon;
 extern int levelPassed;
 

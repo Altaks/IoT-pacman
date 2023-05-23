@@ -60,7 +60,7 @@ int refreshMenu()
 	return joytickSelectPressed() && menuSelected==JOUER;
 }
 	
-void displayGameLosed()
+void displayGameLost()
 {
 	char chaine[20];
 	clearScreenGLCD();

@@ -14,19 +14,19 @@
 void initTIMERS(void);
 
 void configTimer1(void);
-void startTimer1(void); //Permet de lancer l'affichage du vaisseau
+void startTimer1(void); //Permet de gérer l'affichage de Mangeur
 void stopTimer1(void);
 void TIM1_UP_TIM10_IRQHandler(void);
 
 void configTimer2(void);
-void startTimer2(void); //Permet de lancer l'affichage du missile
+void startTimer2(void); //who you is ?
 void stopTimer2(void);
 void TIM2_IRQHandler(void);
 
 void configTimer8(void);
 typedef enum {NORMAL, SPEED, HARDCORE, IMPOSSIBLE} Speed;
 void setSpeedTimer8(Speed speed);
-void startTimer8(void); //Permet de lancer l'affichage des ennemis
+void startTimer8(void); //Permet de gérer l'affichage des ennemis
 void stopTimer8(void);
 void TIM8_UP_TIM13_IRQHandler(void);
 

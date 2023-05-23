@@ -11,9 +11,9 @@
 #ifndef __RANDOM_H
 #define __RANDOM_H
 
-void initRandom(void);
-void setRandom(void);
-int getRandom(int min, int max);
+void initRandom(void); //Lance le timer 3
+void setRandom(void); //Récupère une valeur aléatoire à partir d'une seed basée sur le temps du timer 3
+int getRandom(int min, int max); //Renvoie la vlaeur aléatoire générée
 
 #endif
 

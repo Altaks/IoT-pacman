@@ -19,17 +19,17 @@ extern const int IDLE[2];
 
 void initGPIO(void);//Initialisation des ports
 
-int joytickUpPressed(void);
-int joytickDownPressed(void);
-int joytickSelectPressed(void);
-int joytickLeftPressed(void);
-int joytickRightPressed(void);
-int userButtonPressed(void);
+int joytickUpPressed(void); //Vérifie l'appui sur le joystick vers le haut
+int joytickDownPressed(void); //Vérifie l'appui sur le joystick vers le bas
+int joytickSelectPressed(void); //Vérifie l'appui sur le joystick
+int joytickLeftPressed(void); //Vérifie l'appui sur le joystick vers la gauche
+int joytickRightPressed(void); //Vérifie l'appui sur le joystick vers la droite
+int userButtonPressed(void); //Vérifie l'appui sur le bouton user
 
-void startInterruptBP_USER(void);
-void startInterruptJoystick(void);
+void startInterruptBP_USER(void); //Lance l'interruption sur le bouton user
+void startInterruptJoystick(void); //Lance les interruptions sur le joystick
 
-void stopInterruptBP_USER(void);
-void stopInterruptJoystick(void);
+void stopInterruptBP_USER(void); //stoppe l'interruption sur le bouton user
+void stopInterruptJoystick(void); //stoppe les interruptions sur le joystick
 
 #endif

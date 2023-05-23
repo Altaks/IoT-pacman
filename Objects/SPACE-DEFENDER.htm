@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\SPACE-DEFENDER.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\SPACE-DEFENDER.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue May 23 11:45:47 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue May 23 11:57:29 2023
 <BR><P>
 <H3>Maximum Stack Usage =        360 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -611,7 +611,7 @@ Global Symbols
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayLogo
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 
 <P><STRONG><a name="[69]"></a>GLCD_DrawVLine</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, glcd_mcbstm32e.o(i.GLCD_DrawVLine))
@@ -657,7 +657,7 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupLevel
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 
 <P><STRONG><a name="[47]"></a>SystemInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SystemInit))
@@ -694,7 +694,7 @@ Global Symbols
 <P><STRONG><a name="[8d]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0sprintf$1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 
 <P><STRONG><a name="[a6]"></a>__ARM_fpclassify</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, fpclassify.o(i.__ARM_fpclassify))
@@ -800,7 +800,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 
 <P><STRONG><a name="[84]"></a>clearZone</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, glcd.o(i.clearZone))
@@ -833,8 +833,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTIMERS
 </UL>
 
-<P><STRONG><a name="[8b]"></a>displayGameLosed</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, menu.o(i.displayGameLosed))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = displayGameLosed &rArr; displayLogo &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
+<P><STRONG><a name="[8b]"></a>displayGameLost</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, menu.o(i.displayGameLost))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = displayGameLost &rArr; displayLogo &rArr; GLCD_DrawString &rArr; GLCD_DrawChar &rArr; GLCD_SetWindow &rArr; wr_reg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;userButtonPressed
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearScreenGLCD
@@ -869,7 +869,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 
 <P><STRONG><a name="[91]"></a>displayMenu</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, menu.o(i.displayMenu))
@@ -1005,7 +1005,7 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initGLCD
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayMenu
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1199,7 +1199,7 @@ Global Symbols
 
 <P><STRONG><a name="[8e]"></a>userButtonPressed</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.userButtonPressed))
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameWon
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLosed
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayGameLost
 </UL>
 <P>
 <H3>

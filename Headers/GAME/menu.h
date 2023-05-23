@@ -13,10 +13,15 @@
 
 typedef enum {JOUER, QUITTER} MenuSelected;
 
+//Affiche le menu du jeu
 void displayMenu(MenuSelected menuSelected);
+//Raffraichi l'écran du menu
 int refreshMenu(void);
-void displayGameLosed(void);
+//Affiche l'éran de fin, indique que le joueur a perdu ainsi que son score final
+void displayGameLost(void);
+//Affiche l'éran de fin, indique que le joueur a gagné
 void displayGameWon(void);
+//Affiche une illustration sur le menu
 void displayLogo(void);
 
 #endif

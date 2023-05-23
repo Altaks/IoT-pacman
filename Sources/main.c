@@ -17,7 +17,7 @@
 #include "game.h"
 
 //variables globales
-int gameLosed, gameWon, levelPassed, level, score;
+int gameLost, gameWon, levelPassed, level, score;
 
 /*----------------------------------------------------------------------------
   Main Program
@@ -38,20 +38,20 @@ int main(void){
 		
 		//Lancement de la partie
 		setRandom();
-		gameLosed = gameWon = false;
+		gameLost = gameWon = false;
 		level = 1;
 		score = 0;
-		while(!gameLosed && !gameWon)			//Boucle de la partie
+		while(!gameLost && !gameWon)			//Boucle de la partie
 		{
 			//Lancement du niveau
 			setupLevel();
 			startLevel();
-			while(!gameLosed && !gameWon);		//Boucle du niveau
+			while(!gameLost && !gameWon);		//Boucle du niveau
 			stopLevel();	
 		}
 		
 		//Partie Perdue
-		if(gameLosed) displayGameLosed();
+		if(gameLost) displayGameLost();
 		
 		//Partie Gagnée
 		else if(gameWon) displayGameWon();
