@@ -20,6 +20,7 @@
 #include "random.h"
 
 #include "stdio.h"
+#include "math.h" 
 
 static int xPlayer = GLCD_WIDTH / 2, yPlayer = GLCD_HEIGHT / 2;
 static int playerScore = 0;
@@ -92,8 +93,8 @@ void setupLevel()
 	
 	// place and draw all the ennemies
 	for(i = 0; i < 3; i++){
-		ennemies[i].xPos = getRandom(WIDTH_PACMAN*2, GLCD_WIDTH - (WIDTH_PACMAN*2));
-		ennemies[i].yPos = getRandom(HEIGHT_PACMAN*2, GLCD_HEIGHT - (HEIGHT_PACMAN*2));
+		ennemies[i].xPos = getRandom(WIDTH_PACMAN*3, GLCD_HEIGHT - (WIDTH_PACMAN*2));
+		ennemies[i].yPos = getRandom(HEIGHT_PACMAN*3, GLCD_HEIGHT - (HEIGHT_PACMAN*2));
 		ennemies[i].alignXFirst = getRandom(0, 1); // true or false
 		GLCD_DrawBitmap(ennemies[i].xPos, ennemies[i].yPos, WIDTH_ENNEMI, HEIGHT_ENNEMI, (const unsigned char*) bmpEnnemiOpenLeft);
 	}
@@ -110,17 +111,30 @@ void stopLevel()
 	stopTimer1();
 	stopTimer2();
 	stopTimer8();
+	stopInterruptJoystick();
 	stopInterruptBP_USER();
+}
+
+bool isFoodNearEnnemiesOrMangeur(){
+	int i = 0;
+	Ennemi * ennemi;
+	for(;i <3; i++){
+		ennemi = &ennemies[i];
+		if(sqrt(pow(ennemi->xPos - xFood, 2) + pow(ennemi->yPos - yFood, 2)) < 140) return false;
+	}
+	if(sqrt(pow(xPlayer - xFood, 2) + pow(yPlayer - yFood, 2)) < 140) return false;
+	return true;
 }
 
 void placeFoodAtRandom(){
 	// remove the lastest ball
-	clearZone(xFood, yFood, WIDTH_FOOD, HEIGHT_FOOD); 
+	clearZone(xFood, yFood, WIDTH_FOOD, HEIGHT_FOOD);
 	
 	// randomize the position of the new food
-	xFood = getRandom(WIDTH_PACMAN*2, GLCD_WIDTH - (WIDTH_PACMAN*2));
-	yFood = getRandom(HEIGHT_PACMAN*2, GLCD_HEIGHT - (HEIGHT_PACMAN*2));
-	
+	do {
+		xFood = getRandom(WIDTH_PACMAN*2, GLCD_WIDTH - (WIDTH_PACMAN*2));
+		yFood = getRandom(HEIGHT_PACMAN*2, GLCD_HEIGHT - (HEIGHT_PACMAN*2));
+	} while(isFoodNearEnnemiesOrMangeur());
 	// display it
 	GLCD_DrawBitmap(xFood, yFood, WIDTH_FOOD, HEIGHT_FOOD, (const unsigned char *)bmpFood);
 	
@@ -260,15 +274,15 @@ void updateEnnemiesPositionAndRedraw(){
 
 bool checkCollision(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2) {
     // Calcul des coordonnées des bords des rectangles
-    int left1 = x1;
-    int right1 = x1 + width1;
-    int top1 = y1;
-    int bottom1 = y1 + height1;
+    int left1 = x1 - 1;
+    int right1 = x1 + width1 + 1;
+    int top1 = y1 - 1;
+    int bottom1 = y1 + height1 + 1;
 
-    int left2 = x2;
-    int right2 = x2 + width2;
-    int top2 = y2;
-    int bottom2 = y2 + height2;
+    int left2 = x2 - 1;
+    int right2 = x2 + width2 + 1;
+    int top2 = y2 - 1;
+    int bottom2 = y2 + height2 + 1;
 
     // Vérification de la collision
     return (left1 < right2 && right1 > left2 && top1 < bottom2 && bottom1 > top2);
