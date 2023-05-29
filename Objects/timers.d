@@ -1,6 +1,6 @@
 .\objects\timers.o: Sources\HARD\TIMERS.c
 .\objects\timers.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
-.\objects\timers.o: .\RTE\_SPACE-DEFENDER\RTE_Components.h
+.\objects\timers.o: .\RTE\_PACMAN\RTE_Components.h
 .\objects\timers.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
 .\objects\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\timers.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h

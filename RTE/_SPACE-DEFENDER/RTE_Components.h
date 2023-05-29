@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'SPACE-DEFENDER' 
- * Target:  'SPACE-DEFENDER' 
+ * Project: 'PACMAN' 
+ * Target:  'PACMAN' 
  */
 
 #ifndef RTE_COMPONENTS_H

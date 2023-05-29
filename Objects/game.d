@@ -3,7 +3,7 @@
 .\objects\game.o: .\Headers\HARD\GPIO.h
 .\objects\game.o: .\Headers\HARD\GLCD.h
 .\objects\game.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
-.\objects\game.o: .\RTE\_SPACE-DEFENDER\RTE_Components.h
+.\objects\game.o: .\RTE\_PACMAN\RTE_Components.h
 .\objects\game.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
 .\objects\game.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\game.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
